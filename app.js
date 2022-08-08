@@ -16,5 +16,3 @@ app.use((req, res, next) => {
 });
 
 app.listen(3000);
-
-// module.exports = path.dirname(require.main.filename);
