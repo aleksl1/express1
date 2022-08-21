@@ -1,3 +1,4 @@
+const e = require("express");
 const fs = require("fs");
 const path = require("path");
 const rootDir = require("../util/path");
@@ -22,9 +23,7 @@ module.exports = class Product {
   }
 
   save() {
-    console.log(this);
     getProductsFromFile((products) => {
-      console.log(`id`, this.id);
       if (this.id) {
         const existingProductIndex = products.findIndex(
           (prod) => prod.id === this.id
@@ -38,6 +37,23 @@ module.exports = class Product {
         this.id = Math.random().toString();
         products.push(this);
         fs.writeFile(p, JSON.stringify(products), (err) => {
+          console.log(err);
+        });
+      }
+    });
+  }
+
+  static delete(id) {
+    getProductsFromFile((products) => {
+      if (products.length <= 1) {
+        fs.writeFile(p, JSON.stringify([]), (err) => {
+          console.log(err);
+        });
+      } else {
+        const deleteProductIndex = products.findIndex((prod) => prod.id === id);
+        const updatedProducts = [...products];
+        updatedProducts.splice(deleteProductIndex, 1);
+        fs.writeFile(p, JSON.stringify(updatedProducts), (err) => {
           console.log(err);
         });
       }
