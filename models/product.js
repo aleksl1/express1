@@ -22,7 +22,9 @@ module.exports = class Product {
   }
 
   save() {
+    console.log(this);
     getProductsFromFile((products) => {
+      console.log(`id`, this.id);
       if (this.id) {
         const existingProductIndex = products.findIndex(
           (prod) => prod.id === this.id
