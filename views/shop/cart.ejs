@@ -11,6 +11,7 @@
                             <p>
                             <%= p.productData.title %> (<%= p.qty %>)</p>
                             <form action="/cart-delete-item" method='POST'>
+                                <input type="hidden" value="<%= p.productData.id %>" name="productId">
                                 <button type="submit" class="btn">Delete</button>
                             </form>
                         
@@ -19,7 +20,7 @@
                 </ul>
             
             <% } else { %>
-                
+                <h1>No products in cart</h1>
             <% } %>
         </main>
         <%- include('../includes/end.ejs') %>
