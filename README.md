@@ -1,3 +1,5 @@
 # express1
 
-Udemy course https://www.udemy.com/course/nodejs-the-complete-guide 
+From Node JS Udemy course by Maximilian Schwarzmüller
+
+https://www.udemy.com/course/nodejs-the-complete-guide 
